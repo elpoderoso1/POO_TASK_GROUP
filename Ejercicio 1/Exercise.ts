@@ -29,7 +29,8 @@ abstract class Person {
 }
 
 class Student extends Person implements Reports {
-    private notes: Record<string, number[]> = {};
+    private notes: { [materia: string]: number[] } = {};
+    
     private asistence: [string, boolean][] = [];
 
     constructor(
@@ -67,6 +68,43 @@ class Student extends Person implements Reports {
     }
 
     Info(): string {
-        return `Estudiante: ${this.name}\nGrado ${this.degree}\nID: ${this.id}`
+        return `Estudiante: ${this.name}\nGrado ${this.degree}\nID: ${this.id}`;
     }
+}
+
+class Teacher extends Person {
+    constructor(
+        name: string,
+        edad: number,
+        id: number,
+        public subject: string
+    ) {
+        super(name, edad, id);
+    }
+
+    Info(): string {
+        return `Profesor: ${this.name}\nMateria: ${this.subject}\nID: ${this.id}`;
+    }
+}
+
+class TimeTable {
+    private TimeTables: { [grado: string]: [string, string][] } = {};
+
+    public addTimeTables(degree: string, subject: string, timetable: string): void {
+        if (!this.TimeTables[degree]) {
+            this.TimeTables[degree] = [];
+        }
+        
+        this.TimeTables[degree].push([subject, timetable]);
+    }
+
+    public printTimeTables(degree: string): [string, string][] | undefined {
+        return this.TimeTables[degree];
+    }
+}
+
+class SchoolManage {
+    private student: { [id: number]: Student } = {};
+    private teacher: { [id: number]: Teacher } = {};
+    private timetable: TimeTable = new TimeTable();
 }
