@@ -1,5 +1,5 @@
 // Enum para tipos de evaluaciones
-enum EvaluationType {
+export enum EvaluationType {
     EXAMEN = "Examen",
     TAREA = "Tarea",
     PROYECTO = "Proyecto",
@@ -7,7 +7,7 @@ enum EvaluationType {
 }
 
 // Enum para estados de asistencia
-enum AttendanceStatus {
+export enum AttendanceStatus {
     PRESENTE = "Presente",
     AUSENTE = "Ausente"
 }
@@ -29,7 +29,7 @@ interface Reports {
 }
 
 // Clase de Evaluación
-class Evaluation {
+export class Evaluation {
     constructor(
         public subject: string,
         public type: EvaluationType,
@@ -50,7 +50,7 @@ abstract class Person {
 }
 
 // Clase Estudiante
-class Student extends Person implements Reports {
+export class Student extends Person implements Reports {
     private notes: GradeRecord = {};
     private attendance: AttendanceRecord[] = [];
     private evaluations: Evaluation[] = [];
@@ -99,7 +99,7 @@ class Student extends Person implements Reports {
 }
 
 // Clase Profesor
-class Teacher extends Person {
+export class Teacher extends Person {
     constructor(name: string, edad: number, id: number, public subject: string) {
         super(name, edad, id);
     }
@@ -126,7 +126,7 @@ class TimeTable {
 }
 
 // Clase genérica para la gestión escolar
-class SchoolManage<T extends Person> {
+export class SchoolManage<T extends Person> {
     private records: { [id: number]: T } = {};
 
     public addPerson(person: T): void {
@@ -150,51 +150,51 @@ class SchoolManage<T extends Person> {
     }
 }
 
-// Instancia de gestión escolar para estudiantes y profesores
-const studentManager = new SchoolManage<Student>();
-const teacherManager = new SchoolManage<Teacher>();
+// // Instancia de gestión escolar para estudiantes y profesores
+// const studentManager = new SchoolManage<Student>();
+// const teacherManager = new SchoolManage<Teacher>();
 
-// Crear y registrar un estudiante
-const student01 = new Student("Fatima", 20, 1, "Tercer año de Universidad");
-studentManager.addPerson(student01);
+// // Crear y registrar un estudiante
+// const student01 = new Student("Fatima", 20, 1, "Tercer año de Universidad");
+// studentManager.addPerson(student01);
 
-// Crear y registrar un profesor
-const teacher01 = new Teacher("Rosalina", 31, 1, "Lenguaje");
-teacherManager.addPerson(teacher01);
+// // Crear y registrar un profesor
+// const teacher01 = new Teacher("Rosalina", 31, 1, "Lenguaje");
+// teacherManager.addPerson(teacher01);
 
-// Generar reporte académico del estudiante
-console.log(student01.genReport());
-console.log("\n");
+// // Generar reporte académico del estudiante
+// console.log(student01.genReport());
+// console.log("\n");
 
-// Agregar notas
-student01.addNote("Lenguaje", 89);
-student01.addNote("Matemática", 10);
-student01.addNote("Ciencias", 50);
-student01.addNote("Sociales", 70);
+// // Agregar notas
+// student01.addNote("Lenguaje", 89);
+// student01.addNote("Matemática", 10);
+// student01.addNote("Ciencias", 50);
+// student01.addNote("Sociales", 70);
 
-// Registrar asistencia
-student01.registerAttendance("2025-03-01", AttendanceStatus.PRESENTE);
-student01.registerAttendance("2025-03-02", AttendanceStatus.AUSENTE);
-student01.registerAttendance("2025-03-03", AttendanceStatus.AUSENTE);
+// // Registrar asistencia
+// student01.registerAttendance("2025-03-01", AttendanceStatus.PRESENTE);
+// student01.registerAttendance("2025-03-02", AttendanceStatus.AUSENTE);
+// student01.registerAttendance("2025-03-03", AttendanceStatus.AUSENTE);
 
-// Crear horarios
-const timetable01 = new TimeTable();
-timetable01.addTimeTables("Tercer año de Universidad", "Lenguaje", "Lunes 10:00 AM");
-timetable01.addTimeTables("Tercer año de Universidad", "Matemática", "Martes 8:00 AM");
-timetable01.addTimeTables("Tercer año de Universidad", "Ciencia", "Martes 10:00 AM");
+// // Crear horarios
+// const timetable01 = new TimeTable();
+// timetable01.addTimeTables("Tercer año de Universidad", "Lenguaje", "Lunes 10:00 AM");
+// timetable01.addTimeTables("Tercer año de Universidad", "Matemática", "Martes 8:00 AM");
+// timetable01.addTimeTables("Tercer año de Universidad", "Ciencia", "Martes 10:00 AM");
 
-// Crear y registrar evaluaciones
-const evaluation1 = new Evaluation("Lenguaje", EvaluationType.EXAMEN, "2025-03-15", 85);
-const evaluation2 = new Evaluation("Matemática", EvaluationType.TAREA, "2025-03-20", 92);
+// // Crear y registrar evaluaciones
+// const evaluation1 = new Evaluation("Lenguaje", EvaluationType.EXAMEN, "2025-03-15", 85);
+// const evaluation2 = new Evaluation("Matemática", EvaluationType.TAREA, "2025-03-20", 92);
 
-student01.addEvaluation(evaluation1);
-student01.addEvaluation(evaluation2);
+// student01.addEvaluation(evaluation1);
+// student01.addEvaluation(evaluation2);
 
-// Generar reporte académico del estudiante
-console.log(student01.genReport());
-console.log("\n");
+// // Generar reporte académico del estudiante
+// console.log(student01.genReport());
+// console.log("\n");
 
-// Imprimir información del estudiante y profesor
-studentManager.printPerson(1);
-console.log("\n");
-teacherManager.printPerson(1);
+// // Imprimir información del estudiante y profesor
+// studentManager.printPerson(1);
+// console.log("\n");
+// teacherManager.printPerson(1);
