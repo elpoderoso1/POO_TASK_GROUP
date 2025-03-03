@@ -1,4 +1,4 @@
-1.  Crear un sistema de gestión escolar que:
+1.  Crear un sistema de gestión escolar que - Ariel Neftalí Argueta Rodríguez.
 
     Gestione matrículas y notas
     Controle asistencia
@@ -7,14 +7,14 @@
     Calcule promedios
     Genere reportes académicos
 
-Para resolver el ejercicio debe incluir:
+Para resolver el ejercicio debe incluir.
 
     Interfaces
     Clases abstractas
     Clases concretas
     Herencia y polimorfismo
 
-2.  Desarrollar un sistema de gestión de cine que:
+2.  Desarrollar un sistema de gestión de cine que - Stanley Josué Pineda Argueta.
 
     Gestione cartelera y horarios
     Procese venta de boletos
@@ -30,7 +30,7 @@ Para resolver el ejercicio debe incluir:
     Clases concretas
     Herencia y polimorfismo
 
-3.  Desarrollar un sistema de plataforma de streaming de contenido que:
+3.  Desarrollar un sistema de plataforma de streaming de contenido que - Alexy Ariel Sánchez Suriano.
 
     Gestione diferentes tipos de contenido
     Maneje suscripciones
